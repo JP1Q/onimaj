@@ -11,19 +11,19 @@ let output_info;
 
 
 async function GetAnimeList(query, page) {
-  const response = await fetch(`https://api.consumet.org/anime/enime/${query}?page=${page}`);
+  const response = await fetch(`http://localhost:3000/anime/gogoanime/${query}?page=${page}`);
   const jsonData = await response.json();
   return jsonData.results;
 }
 
 async function GetAnimeInfo(anime_id){
-  const response = await fetch(`https://api.consumet.org/anime/enime/info?id=${anime_id}`)
+  const response = await fetch(`http://localhost:3000/anime/gogoanime/info/${anime_id}`)
   const jsonData = await response.json();
   return jsonData;
 }
 
 async function LoadAnime(episode_id){
-  const response = await fetch(`https://api.consumet.org/anime/enime/watch?episodeId=${episode_id}&server=gogocdn`)
+  const response = await fetch(`http://localhost:3000/anime/gogoanime/watch/episodeId=${episode_id}&server=gogocdn`)
   console.log(episode_id)
   const jsonData = await response.json();
   return jsonData;
@@ -195,7 +195,7 @@ async function NextEpisode(){
 // Load Trending shows
 async function GetTrending(){
 
-  const response = await fetch(`https://api.consumet.org/meta/anilist/trending?page=1&perPage=5`)
+  const response = await fetch(`http://localhost:3000/meta/anilist/trending?page=1&perPage=5`)
   const jsonData = await response.json();
   return jsonData;
 
@@ -203,7 +203,7 @@ async function GetTrending(){
 
 async function GetPopular(){
 
-  const response = await fetch(`https://api.consumet.org/meta/anilist/popular?page=1&perPage=5`)
+  const response = await fetch(`http://localhost:3000/meta/anilist/popular?page=1&perPage=5`)
   const jsonData = await response.json();
   return jsonData;
 
@@ -278,7 +278,7 @@ async function AnimeIndexinit(txt){
 
 async function GetNewsAnime(){
 
-  const response = await fetch(`https://api.consumet.org/news/ann/recent-feeds?topic=anime`)
+  const response = await fetch(`http://localhost:3000/news/ann/recent-feeds?topic=anime`)
   const jsonData = await response.json();
   return jsonData;
 
