@@ -23,7 +23,7 @@ async function GetAnimeInfo(anime_id){
 }
 
 async function LoadAnime(episode_id){
-  const response = await fetch(`http://localhost:3000/anime/gogoanime/watch/episodeId=${episode_id}&server=gogocdn`)
+  const response = await fetch(`http://localhost:3000/anime/gogoanime/watch/${episode_id}?server=gogocdn`)
   console.log(episode_id)
   const jsonData = await response.json();
   return jsonData;
